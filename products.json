@@ -3,7 +3,85 @@
           "name": "Vintage T-shirt",
           "description": "Tie-die Grateful Dead T-shirt",
           "price": 35,
-          "categories": ["clothing", "vintage"]
+          "categories": ["Clothing", "Vintage"]
+        },
+        {
+          "name": "Leather Jacket",
+          "description": "Genuine leather biker jacket",
+          "price": 150,
+          "categories": ["Clothing", "Leather"]
+        },
+        {
+          "name": "Running Sneakers",
+          "description": "Lightweight running shoes",
+          "price": 120,
+          "categories": ["Footwear", "Sports"]
+        },
+        {
+          "name": "Basketball",
+          "description": "Official size and weight basketball",
+          "price": 30,
+          "categories": ["Sports", "Equipment"]
+        },
+        {
+          "name": "Yoga Mat",
+          "description": "Eco-friendly yoga mat",
+          "price": 45,
+          "categories": ["Sports", "Wellness"]
+        },
+        {
+          "name": "Sunglasses",
+          "description": "Polarized sunglasses",
+          "price": 75,
+          "categories": ["Accessories", "Fashion"]
+        },
+        {
+          "name": "Backpack",
+          "description": "Water-resistant backpack",
+          "price": 60,
+          "categories": ["Accessories", "Travel"]
+        },
+        {
+          "name": "Smartwatch",
+          "description": "Waterproof smartwatch with heart rate monitor",
+          "price": 199,
+          "categories": ["Electronics", "Fitness"]
+        },
+        {
+          "name": "Bookshelf",
+          "description": "Wooden bookshelf",
+          "price": 110,
+          "categories": ["Furniture", "Home Decor"]
+        },
+        {
+          "name": "Desk Lamp",
+          "description": "LED desk lamp with adjustable brightness",
+          "price": 40,
+          "categories": ["Furniture", "Lighting"]
+        },
+        {
+          "name": "Water Bottle",
+          "description": "Insulated stainless steel water bottle",
+          "price": 25,
+          "categories": ["Wellness", "Travel"]
+        },
+        {
+          "name": "Graphic Novel",
+          "description": "Latest graphic novel release",
+          "price": 20,
+          "categories": ["Books", "Entertainment"]
+        },
+        {
+          "name": "Acoustic Guitar",
+          "description": "Full-size acoustic guitar",
+          "price": 250,
+          "categories": ["Music", "Instruments"]
+        },
+        {
+          "name": "Bluetooth Headphones",
+          "description": "Noise-cancelling Bluetooth headphones",
+          "price": 130,
+          "categories": ["Electronics", "Music"]
         }
-]
+      ]
       

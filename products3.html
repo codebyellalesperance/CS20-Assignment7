@@ -1,35 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Filter Products</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filtered Products List</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <style>
-        #categoryFilter, #filterButton {
-            padding: 10px;
-            margin: 20px 0;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            background-color: #fff;
-            cursor: pointer;
-        }
-
-        #filterButton {
-            color: #fff;
-            background-color: #007BFF;
-            border-color: #007BFF;
-        }
-
-        #filterButton:hover {
-            background-color: #0056b3;
-            border-color: #004085;
-        }
-
-        #filteredProducts div {
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #e9ecef;
-            border-radius: 5px;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .product, .filtered-product {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .product h2, .filtered-product h2 {
+      color: #007BFF;
+      font-size: 24px;
+    }
+    .product p, .filtered-product p {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+    .product p:first-child, .filtered-product p:first-child {
+      font-weight: bold;
+    }
+    #categoryFilter, #filterButton {
+      padding: 10px;
+      margin: 20px 0;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      cursor: pointer;
+    }
+    #filterButton {
+      color: #fff;
+      background-color: #007BFF;
+      border-color: #007BFF;
+    }
+    #filterButton:hover {
+      background-color: #0056b3;
+      border-color: #004085;
+    }
   </style>
 </head>
 <body>
@@ -39,22 +57,33 @@
 
   <script>
     $.get('products.json', function(data) {
+      // Populate categories dropdown
       const categories = [...new Set(data.flatMap(product => product.categories))];
       const categoryFilter = $('#categoryFilter');
       categories.forEach(category => {
         categoryFilter.append(`<option value="${category}">${category}</option>`);
       });
 
+      // Filter button click event
       $('#filterButton').click(function() {
         const selectedCategory = categoryFilter.val();
         const filteredProducts = data.filter(product => product.categories.includes(selectedCategory));
         const filteredProductsDiv = $('#filteredProducts');
-        filteredProductsDiv.empty();
+        filteredProductsDiv.empty(); // Clear previous results
         filteredProducts.forEach(product => {
-          filteredProductsDiv.append(`<div>${product.name}</div>`);
+          filteredProductsDiv.append(`
+          <div class="product">
+            <h2>${product.name}</h2>
+            <p>${product.description}</p>
+            <p>Price: $${product.price}</p>
+            <p>Categories: ${product.categories.join(', ')}</p>
+          </div>
+          `);
         });
       });
-    }, 'json');
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown) {
+      console.error("Error loading the JSON: ", textStatus, errorThrown);
+    });
   </script>
 </body>
 </html>

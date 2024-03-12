@@ -1,0 +1,3 @@
+1. What was the most interesting part of this assignment?
+
+The most interesting part of this assignment for many might be using jQuery to dynamically manipulate the DOM based on JSON data. Implementing a filter that allows users to sift through products based on categories introduces a practical application of JavaScript and jQuery for enhancing user experience was really cool and I really enjoyed that aspect. 
