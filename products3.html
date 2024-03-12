@@ -57,19 +57,17 @@
 
   <script>
     $.get('products.json', function(data) {
-      // Populate categories dropdown
       const categories = [...new Set(data.flatMap(product => product.categories))];
       const categoryFilter = $('#categoryFilter');
       categories.forEach(category => {
         categoryFilter.append(`<option value="${category}">${category}</option>`);
       });
 
-      // Filter button click event
       $('#filterButton').click(function() {
         const selectedCategory = categoryFilter.val();
         const filteredProducts = data.filter(product => product.categories.includes(selectedCategory));
         const filteredProductsDiv = $('#filteredProducts');
-        filteredProductsDiv.empty(); // Clear previous results
+        filteredProductsDiv.empty(); 
         filteredProducts.forEach(product => {
           filteredProductsDiv.append(`
           <div class="product">
