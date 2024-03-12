@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Filter Products</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <select id="categoryFilter"></select>
+  <button id="filterButton">Filter</button>
+  <div id="filteredProducts"></div>
+
+  <script>
+    $.get('products.json', function(data) {
+      const categories = [...new Set(data.flatMap(product => product.categories))];
+      const categoryFilter = $('#categoryFilter');
+      categories.forEach(category => {
+        categoryFilter.append(`<option value="${category}">${category}</option>`);
+      });
+
+      $('#filterButton').click(function() {
+        const selectedCategory = categoryFilter.val();
+        const filteredProducts = data.filter(product => product.categories.includes(selectedCategory));
+        const filteredProductsDiv = $('#filteredProducts');
+        filteredProductsDiv.empty();
+        filteredProducts.forEach(product => {
+          filteredProductsDiv.append(`<div>${product.name}</div>`);
+        });
+      });
+    }, 'json');
+  </script>
+</body>
+</html>
